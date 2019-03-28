@@ -26,6 +26,7 @@ namespace TestApplication
         {
             InitializeComponent();
             this.DataContext = new DomainViewModel();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,15 @@ namespace TestApplication
             using (SqlCommand myCommand = new SqlCommand(query, myConnection)) { 
 
             myCommand.ExecuteNonQuery();
-        }
+            }
+
+            string createouquery = "IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='OUs' and xtype='U') CREATE TABLE [dbo].[OUs] (Id INT NOT NULL, Name VARCHAR(20) NOT NULL, PRIMARY KEY(Id))";
+
+            using (SqlCommand myCommand = new SqlCommand(createouquery, myConnection))
+            {
+
+                myCommand.ExecuteNonQuery();
+            }
 
             myConnection.Close();
         }

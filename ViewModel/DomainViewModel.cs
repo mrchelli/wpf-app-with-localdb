@@ -11,4 +11,5 @@ public class DomainViewModel
         Domain = _db.Domain.ToList();
     }
     public IList<Domain> Domain { get; set; }
+    public IList<OU> OU { get; set; }
 }

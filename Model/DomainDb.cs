@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using TestApplication;
+
 
 public class DomainDb : DbContext
 {
@@ -11,5 +11,6 @@ public class DomainDb : DbContext
     }
 
     public DbSet<Domain> Domain { get; set; }
+    public DbSet<OU> OU { get; set; }
 	
 }
